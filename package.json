@@ -1,0 +1,6 @@
+{
+  "dependencies": {
+    "@huggingface/hub": "^0.12.3",
+    "@huggingface/inference": "^2.6.4"
+  }
+}

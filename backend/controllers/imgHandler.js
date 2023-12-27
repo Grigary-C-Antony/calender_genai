@@ -38,9 +38,22 @@ const downloadImage = async (url, localPath) => {
     throw error;
   }
 };
+
+async function blobImageToDataURI(blob) {
+  const arrayBuffer = await blob.arrayBuffer();
+  const buffer = Buffer.from(arrayBuffer);
+
+  const dataURI = `data:${
+    blob.type || "application/octet-stream"
+  };base64,${buffer.toString("base64")}`;
+
+  return dataURI;
+}
+
 const imageUploader = async (url, uuid) => {
+  let a = await blobImageToDataURI(url);
   let result = await cloudinary.v2.uploader.upload(
-    url,
+    a,
     { public_id: uuid, folder: "generated_images" }
     // function (error, result) {
     //   console.log(result);

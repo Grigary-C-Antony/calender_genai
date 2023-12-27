@@ -38,21 +38,24 @@ function App() {
   // };
   const imageLoaderApi = async () => {
     try {
-      const response = await fetch("http://localhost:5000/apiforimage", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Access-Control-Allow-Headers":
-            "Content-Type,X-Amz-Date,X-Amz-Security-Token,Authorization,X-Api-Key,X-Requested-With,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
-          "Access-Control-Allow-Origin": "*",
-          "Access-Control-Allow-Methods":
-            "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT",
-          "X-Requested-With": "*",
-        },
-        body: JSON.stringify({
-          desc: today,
-        }),
-      });
+      const response = await fetch(
+        "https://calender-genai.onrender.com/apiforimage",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            "Access-Control-Allow-Headers":
+              "Content-Type,X-Amz-Date,X-Amz-Security-Token,Authorization,X-Api-Key,X-Requested-With,Accept,Access-Control-Allow-Methods,Access-Control-Allow-Origin,Access-Control-Allow-Headers",
+            "Access-Control-Allow-Origin": "*",
+            "Access-Control-Allow-Methods":
+              "DELETE,GET,HEAD,OPTIONS,PATCH,POST,PUT",
+            "X-Requested-With": "*",
+          },
+          body: JSON.stringify({
+            desc: today,
+          }),
+        }
+      );
       const jsonData = await response.json();
 
       setGenImg(jsonData.output);
