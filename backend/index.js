@@ -28,7 +28,7 @@ app.use(
       "http://localhost:5174/",
       "http://localhost:5173/",
       "https://artorise.vercel.app/",
-      "https://artorise-frontend.onrender.com/",
+      "https://calender-genai.onrender.com/",
       "http://localhost:3003",
       "http://localhost:3002",
     ],
