@@ -22,18 +22,18 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use(
-  //   cors({
-  //     credentials: true,
-  //     origin: [
-  //       "http://localhost:5174/",
-  //       "http://localhost:5173/",
-  //       "https://artorise.vercel.app/",
-  //       "https://artorise-frontend.onrender.com/",
-  //       "http://localhost:3003",
-  //       "http://localhost:3002",
-  //     ],
-  //   })
-  cors()
+  cors({
+    credentials: true,
+    origin: [
+      "http://localhost:5174/",
+      "http://localhost:5173/",
+      "https://artorise.vercel.app/",
+      "https://artorise-frontend.onrender.com/",
+      "http://localhost:3003",
+      "http://localhost:3002",
+    ],
+  })
+  // cors()
 );
 
 app.use(express.static(path.resolve(__dirname, "dist")));
